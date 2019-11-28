@@ -61,7 +61,7 @@ namespace SistemaGeonet.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RegistrarProveedor([Bind("idProveedor,nombre_empresa,nombre_contacto,tipo_documento_identidad,nro_documento_identidad,pais,direccion,telefono,email")] Proveedor proveedor)
+        public async Task<IActionResult> RegistrarProveedor([Bind("idProveedor,nombreEmpresa,nombreContacto,tipoDocumentoIdentidad,nroDocumentoIdentidad,pais,direccion,telefono,email")] Proveedor proveedor)
         {
             if ((proveedor.tipoDocumentoIdentidad == "DNI" && proveedor.nroDocumentoIdentidad.Length != 8) || ((proveedor.tipoDocumentoIdentidad == "Carnet de Extranjería") && (proveedor.nroDocumentoIdentidad.Length != 9)))
             {
@@ -123,7 +123,7 @@ namespace SistemaGeonet.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditarProveedor(int id, [Bind("idProveedor,nombre_empresa,nombre_contacto,tipo_documento_identidad,nro_documento_identidad,pais,direccion,telefono,email")] Proveedor proveedor)
+        public async Task<IActionResult> EditarProveedor(int id, [Bind("idProveedor,nombreEmpresa,nombreContacto,tipoDocumentoIdentidad,nroDocumentoIdentidad,pais,direccion,telefono,email")] Proveedor proveedor)
         {
             if (id != proveedor.idProveedor)
             {

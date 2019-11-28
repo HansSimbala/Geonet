@@ -32,3 +32,14 @@ C:\Users\Emperatriz\Desktop\SistemaGeonet_Validado\SistemaGeonet\bin\Debug\netco
 C:\Users\Emperatriz\Desktop\SistemaGeonet_Validado\SistemaGeonet\bin\Debug\netcoreapp2.0\SistemaGeonet.runtimeconfig.dev.json
 C:\Users\Emperatriz\Desktop\SistemaGeonet_Validado\SistemaGeonet\bin\Debug\netcoreapp2.0\SistemaGeonet.dll
 C:\Users\Emperatriz\Desktop\SistemaGeonet_Validado\SistemaGeonet\bin\Debug\netcoreapp2.0\SistemaGeonet.pdb
+C:\Users\Sergio\Source\Repos\Geonet\SistemaGeonet\bin\Debug\netcoreapp2.0\SistemaGeonet.deps.json
+C:\Users\Sergio\Source\Repos\Geonet\SistemaGeonet\bin\Debug\netcoreapp2.0\SistemaGeonet.runtimeconfig.json
+C:\Users\Sergio\Source\Repos\Geonet\SistemaGeonet\bin\Debug\netcoreapp2.0\SistemaGeonet.runtimeconfig.dev.json
+C:\Users\Sergio\Source\Repos\Geonet\SistemaGeonet\bin\Debug\netcoreapp2.0\SistemaGeonet.dll
+C:\Users\Sergio\Source\Repos\Geonet\SistemaGeonet\bin\Debug\netcoreapp2.0\SistemaGeonet.pdb
+C:\Users\Sergio\Source\Repos\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\SistemaGeonet.csproj.CoreCompileInputs.cache
+C:\Users\Sergio\Source\Repos\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Sergio\Source\Repos\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\SistemaGeonet.AssemblyInfoInputs.cache
+C:\Users\Sergio\Source\Repos\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\SistemaGeonet.AssemblyInfo.cs
+C:\Users\Sergio\Source\Repos\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\SistemaGeonet.dll
+C:\Users\Sergio\Source\Repos\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\SistemaGeonet.pdb

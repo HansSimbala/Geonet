@@ -160,7 +160,7 @@ namespace SistemaGeonet.Controllers
         // GET: OrdenCompra/Create
         public IActionResult RegistrarOrdenCompra()
         {
-            ViewData["idProveedor"] = new SelectList(_context.Proveedor, "idProveedor", "nombre_empresa");
+            ViewData["idProveedor"] = new SelectList(_context.Proveedor, "idProveedor", "nombreEmpresa");
             return View();
         }
 
@@ -178,7 +178,7 @@ namespace SistemaGeonet.Controllers
                 int idx = ordenCompra.idOrdenCompra;
                 return RedirectToAction("DetalleOrdenCompra", "OrdenCompra", new { @id = idx });
             }
-            ViewData["idProveedor"] = new SelectList(_context.Proveedor, "idProveedor", "nombre_empresa", ordenCompra.idProveedor);
+            ViewData["idProveedor"] = new SelectList(_context.Proveedor, "idProveedor", "nombreEmpresa", ordenCompra.idProveedor);
             return View(ordenCompra);
         }
 
@@ -195,7 +195,7 @@ namespace SistemaGeonet.Controllers
             {
                 return NotFound();
             }
-            ViewData["idProveedor"] = new SelectList(_context.Proveedor, "idProveedor", "nombre_empresa", ordenCompra.idProveedor);
+            ViewData["idProveedor"] = new SelectList(_context.Proveedor, "idProveedor", "nombreEmpresa", ordenCompra.idProveedor);
             return View(ordenCompra);
         }
 
@@ -231,7 +231,7 @@ namespace SistemaGeonet.Controllers
                 }
                 return RedirectToAction(nameof(MenuOrdenCompra));
             }
-            ViewData["idProveedor"] = new SelectList(_context.Proveedor, "idProveedor", "nombre_empresa", ordenCompra.idProveedor);
+            ViewData["idProveedor"] = new SelectList(_context.Proveedor, "idProveedor", "nombreEmpresa", ordenCompra.idProveedor);
             return View(ordenCompra);
         }
 

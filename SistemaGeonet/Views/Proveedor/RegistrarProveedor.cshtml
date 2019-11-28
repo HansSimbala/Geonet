@@ -33,9 +33,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label asp-for="nombre_empresa" class="col-sm-3 col-form-label"></label>
+                                <label asp-for="nombreEmpresa" class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <input asp-for="nombre_empresa" type="text" class="form-control @ViewData["empresaVal"]" placeholder="Nombre de la empresa o persona" required />
+                                    <input asp-for="nombreEmpresa" type="text" class="form-control @ViewData["empresaVal"]" placeholder="Nombre de la empresa o persona" required />
                                 </div>
                             </div>
                         </div>
@@ -52,9 +52,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label asp-for="nombre_contacto" class="col-sm-3 col-form-label"></label>
+                                <label asp-for="nombreContacto" class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <input asp-for="nombre_contacto" type="text" class="form-control @ViewData["contactoVal"]" placeholder="Nombre de contacto" required />
+                                    <input asp-for="nombreContacto" type="text" class="form-control @ViewData["contactoVal"]" placeholder="Nombre de contacto" required />
 
                                 </div>
                             </div>
@@ -77,9 +77,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label asp-for="tipo_documento_identidad" class="col-sm-3 col-form-label"></label>
+                                <label asp-for="tipoDocumentoIdentidad" class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <select asp-for="tipo_documento_identidad" class="form-control" required>
+                                    <select asp-for="tipoDocumentoIdentidad" class="form-control" required>
                                         <option value="DNI">DNI</option>
                                         <option value="Carnet Extranjería">Carnet Extranjería</option>
                                     </select>
@@ -88,9 +88,9 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label asp-for="nro_documento_identidad" class="col-sm-3 col-form-label"></label>
+                                <label asp-for="nroDocumentoIdentidad" class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <input asp-for="nro_documento_identidad" class="form-control @ViewData["docVal"]" placeholder="Documento" type="number" required />
+                                    <input asp-for="nroDocumentoIdentidad" class="form-control @ViewData["docVal"]" placeholder="Documento" type="number" required />
 
                                 </div>
                             </div>
