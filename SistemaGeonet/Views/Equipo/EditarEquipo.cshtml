@@ -1,0 +1,136 @@
+﻿@*@model SistemaGeonet.Models.Equipo
+
+    @{
+        ViewData["Title"] = "Edit";
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+
+    <h2>Edit</h2>
+
+    <h4>Equipo</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="EditarEquipo">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="idEquipo" />
+                <div class="form-group">
+                    <label asp-for="idCategoria" class="control-label"></label>
+                    <select asp-for="idCategoria" class="form-control" asp-items="ViewBag.idCategoria"></select>
+                    <span asp-validation-for="idCategoria" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="nombre" class="control-label"></label>
+                    <input asp-for="nombre" class="form-control" />
+                    <span asp-validation-for="nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="marca" class="control-label"></label>
+                    <input asp-for="marca" class="form-control" />
+                    <span asp-validation-for="marca" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="codigo" class="control-label"></label>
+                    <input asp-for="codigo" class="form-control" />
+                    <span asp-validation-for="codigo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="descripcion" class="control-label"></label>
+                    <input asp-for="descripcion" class="form-control" />
+                    <span asp-validation-for="descripcion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="imagen" class="control-label"></label>
+                    <input asp-for="imagen" class="form-control" />
+                    <span asp-validation-for="imagen" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+
+
+@model SistemaGeonet.Models.Equipo
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+
+<form asp-action="EditarEquipo">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="idEquipo" />
+    <div class="card">
+        <div class="card-header">
+            <strong> Editar Equipo</strong>
+
+        </div>
+
+        <div class="card-body">
+
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+
+
+                    <label asp-for="nombre" class="control-label"></label>
+                    <input asp-for="nombre" class="form-control" />
+                    <span asp-validation-for="nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="marca" class="control-label"></label>
+                    <input asp-for="marca" class="form-control" />
+                    <span asp-validation-for="marca" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+
+
+                    <label asp-for="codigo" class="control-label"></label>
+                    <input asp-for="codigo" class="form-control" />
+                    <span asp-validation-for="codigo" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="idCategoria" class="control-label"></label>
+                    <select asp-for="idCategoria" class="form-control" asp-items="ViewBag.idCategoria"></select>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+
+
+                    <label asp-for="descripcion" class="control-label"></label>
+                    <input asp-for="descripcion" class="form-control" />
+                    <span asp-validation-for="descripcion" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-sm btn-primary"> <i class="fa fa-save"></i> Guardar Cambios</button>
+                <a asp-action="MenuEquipo" class="btn btn-sm btn-danger">  <i class="fa fa-backward"></i> Cancelar</a>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</form>
+

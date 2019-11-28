@@ -1,0 +1,113 @@
+﻿@model SistemaGeonet.Models.EquipoInventario
+@{
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-header">
+                <strong> Registrar Equipo</strong>
+            </div>
+            <div class="card-body">
+                <form asp-action="RegistrarEquipoInventario" class="needs-validation" novalidate>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label asp-for="nombre" class="control-label"></label>
+                            <input asp-for="nombre" type="text" class="form-control @ViewData["nomVal"]" required />
+                        </div>
+                        <div class="form-group col">
+                            <label asp-for="marca" class="control-label"></label>
+                            <input asp-for="marca" class="form-control @ViewData["marVal"]" required />
+                        </div>
+                        <div class="form-group col">
+                            <label asp-for="idCategoria" class="control-label"></label>
+                            <select asp-for="idCategoria" class="form-control" asp-items="ViewBag.idCategoria" required>
+                                <option value="" disabled selected>Seleccione una categoría</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label asp-for="descripcion" class="control-label"></label>
+                            <textarea asp-for="descripcion" class="form-control" rows="1" type="text" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label asp-for="codigo" class=" control-label"></label>
+                            <input asp-for="codigo" type="text" class="form-control @ViewData["codVal"]" required />
+                        </div>
+                        <div class="form-group col">
+                            <label asp-for="SKU" class="control-label"></label>
+                            <input asp-for="SKU" class="form-control @ViewData["skuVal"]" required />
+                        </div>
+                        <div class="form-group col">
+                            <label asp-for="imagen" class="control-label"></label>
+                            <div class="custom-file">
+                                <input type="file" asp-for="imagen" class="form-control custom-file-input" required />
+                                <label class="custom-file-label">Elegir imagen</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <label asp-for="cantidadMinima" class="control-label"></label>
+                            <input asp-for="cantidadMinima" class="form-control @ViewData["minVal"]" type="number" min="0" oninput="validity.valid||(value='');" required />
+                        </div>
+                        <div class="form-group col">
+                            <label asp-for="cantidadMaxima" class="control-label"></label>
+                            <input asp-for="cantidadMaxima" class="form-control @ViewData["maxVal"]" type="number" min="0" oninput="validity.valid||(value='');" required />
+                        </div>
+                        <div class="form-group col">
+                            <label asp-for="cantidadReal" class="control-label"></label>
+                            <input asp-for="cantidadReal" class="form-control @ViewData["cantVal"]" type="number" min="0" oninput="validity.valid||(value='');" required />
+                        </div>
+                        <div class="form-group col">
+                            <label asp-for="precioUnit" class="control-label"></label>
+                            <input asp-for="precioUnit" class="form-control @ViewData["precioVal"]" required />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success mr-2"> <i class="fa fa-save"></i> Registrar</button>
+                    <a asp-action="MenuInventario" class="btn btn-light mr-2">    <i class="fa fa-backward"></i> Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    }
+</body>
+</html>

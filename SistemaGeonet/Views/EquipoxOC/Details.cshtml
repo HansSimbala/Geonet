@@ -1,0 +1,37 @@
+﻿@model SistemaGeonet.Models.EquipoxOC
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EquipoxOC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.equipo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.equipo.codigo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ordenCompra)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ordenCompra.idOrdenCompra)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.idEquipoxOC">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

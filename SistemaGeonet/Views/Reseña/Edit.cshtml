@@ -1,0 +1,47 @@
+﻿@model SistemaGeonet.Models.Reseña
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Reseña</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="idReseña" />
+            <div class="form-group">
+                <label asp-for="idInventario" class="control-label"></label>
+                <select asp-for="idInventario" class="form-control" asp-items="ViewBag.idInventario"></select>
+                <span asp-validation-for="idInventario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="comentario" class="control-label"></label>
+                <input asp-for="comentario" class="form-control" />
+                <span asp-validation-for="comentario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="calificacion" class="control-label"></label>
+                <input asp-for="calificacion" class="form-control" />
+                <span asp-validation-for="calificacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="usuario" class="control-label"></label>
+                <input asp-for="usuario" class="form-control" />
+                <span asp-validation-for="usuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

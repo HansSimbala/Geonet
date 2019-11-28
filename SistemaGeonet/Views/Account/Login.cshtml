@@ -1,0 +1,114 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@model LoginViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Iniciar Sesión
+    </title>
+    <link rel="shortcut icon" href="~/images/logotipo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="~/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link href="~/css/login.css" rel="stylesheet">
+    <script src="~/js/fontawesome.min.js"></script>
+    <script src="~/js/solid.min.js"></script>
+    <script src="~/js/brands.min.js"></script>
+</head>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7 register-info-box">
+            <img src="~/images/logo.png" alt="">
+            <div class="info">
+                <p class="titulo">
+                    Bienvenido a Geonet
+                </p>
+                <p class="text-center">
+                    ¿Aún no te has registrado? <br>
+                    Que esperas registrate ahora y forma parte de la familia geonet ahora
+                </p>
+                <a class="label-info" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Registrarse</a>
+            </div>
+            
+            <a class="back" asp-area="" asp-controller="Inventarios" asp-action="Index">@*<i class="fas fa-arrow-left"></i>*@ Volver</a>
+        </div>
+        <div class="col-md-5 formulario">
+            <p class="titulo">
+                INICIAR SESIÓN
+            </p>
+            <form asp-route-returnurl="@ViewData["ReturnUrl"]" class="needs-validation" method="post" novalidate>
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="user">
+                    <i class="fas fa-user">
+                    </i>
+                    <input asp-for="Email" class="form-control" placeholder="Email" required type="email">
+                </div>
+                <div class="password">
+                    <i class="fas fa-key">
+                    </i>
+                    <input asp-for="Password" class="form-control" placeholder="Contraseña" id="txtContraseña" required type="password">
+                    <a class="yes ">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a class="no d-none ">
+                        <i class="fas fa-eye-slash "></i>
+                    </a>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="RememberMe">
+                            <input asp-for="RememberMe" />
+                            Recordar contraseña
+                        </label>
+                    </div>
+                </div>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+            <a class="forgot" asp-action="ForgotPassword">¿Olvidaste tu contraseña?</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
+<script defer="" src="~/js/fontawesome.min.js">
+</script>
+<script defer="" src="~/js/brands.min.js">
+</script>
+<script defer="" src="~/js/solid.min.js">
+</script>
+<script src="~/js/jquery-3.4.1.min.js">
+</script>
+<script src="~/js/login.js"></script>
+
+
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

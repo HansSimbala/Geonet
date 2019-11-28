@@ -1,0 +1,130 @@
+﻿@model SistemaGeonet.Models.Catalogo
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-header">
+            <strong> Registrar Equipo</strong>
+
+        </div>
+        <div class="card-body">
+            <form asp-action="RegistrarCatalogo" class="needs-validation" novalidate>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="idInventario" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <select asp-for="idInventario" class="form-control" asp-items="ViewBag.idInventario" required>
+                                    <option value="" disabled selected>Seleccione un equipo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="cantidadVirtual" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="cantidadVirtual" class="form-control" type="number" min="0" oninput="validity.valid||(value='');" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="titulo" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="titulo" class="form-control" type="text" required />
+                                <span asp-validation-for="titulo" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="descripcion" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <textarea asp-for="descripcion" class="form-control" rows="1" type="text" required></textarea>
+                                <span asp-validation-for="descripcion" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="foto1" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input type="file" asp-for="foto1" class="form-control" required/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="foto2" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input type="file" asp-for="foto2" class="form-control" required/>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="foto3" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input type="file" asp-for="foto3" class="form-control" required/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="foto4" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input type="file" asp-for="foto4" class="form-control" required/>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-success mr-2"> <i class="fa fa-save"></i> Registrar</button>
+                <a asp-action="MenuCatalogo" class="btn btn-light mr-2">    <i class="fa fa-backward"></i> Cancelar</a>
+
+            </form>
+        </div>
+
+
+    </div>
+</div>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>

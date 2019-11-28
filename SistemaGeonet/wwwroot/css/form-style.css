@@ -1,0 +1,58 @@
+﻿
+.contact-form {
+    background: #fff;
+    /*margin-top: 10%;*/
+    margin-bottom: 5%;
+    width: 70%;
+}
+
+.contact-form .form-control {
+    border-radius: 1rem;
+
+}
+
+.contact-form .btnCancel, .btnSuccess {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btnCancel {
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+
+.btnSuccess {
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+
+.myBody {
+    background-color: #F2F2F2;
+    min-width: 50px;
+}
+#form {
+    background-color: #F2F2F2;
+}
+body {
+    background-color: #F2F2F2;
+}
+#asBtn:hover {
+    text-decoration: none;
+    font-weight: 600;
+}
+.radius {
+    border-radius: 1rem;
+}

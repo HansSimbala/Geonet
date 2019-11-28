@@ -1,0 +1,136 @@
+﻿@model SistemaGeonet.Models.Item
+
+@{
+    ViewData["Title"] = "SacarItem";
+    Layout = null;
+}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-header">
+            <strong> Sacar Equipo</strong>
+
+        </div>
+        <div class="card-body">
+
+            <form asp-action="SacarItem">
+                <p class="card-description"> </p>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group row" style="display:none">
+                            <label asp-for="IdOrdenPedido" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="IdOrdenPedido" class="form-control" value="@ViewContext.RouteData.Values["id"]" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group row">
+                            <label asp-for="IdInventario" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+
+                                <select id="IdInventario" asp-for="IdInventario" class="form-control" asp-items="@(new SelectList(@ViewBag.IdInventario,"idInventario","nombre"))"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Nroserie" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <select id="Nroserie" asp-for="Nroserie" class="form-control" asp-items="@(new SelectList(string.Empty,"Nroserie" ,"Nroserie"))"></select>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="detalle" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="detalle" type="text" class="form-control" placeholder="detalle" />
+                                <span asp-validation-for="detalle" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="estado" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="estado" type="text" value="Inactivo" readonly class="form-control" />
+                                <span asp-validation-for="estado" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <button type="submit" class="btn btn-success mr-2"> <i class="fa fa-save"></i> Registrar</button>
+
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+        var items = "<option value ='0'>Seleccione un Item </option>";
+        $('#Nroserie').html(items);
+
+
+            $("#IdInventario").change(function () {
+                var url = '@Url.Content("~/")' + "Item/getNroserie";
+                var ddlsource = "#IdInventario";
+                $.getJSON(url, { IdInventario: $(ddlsource).val() }, function (data) {
+                    var items = '';
+                    $("#Nroserie").empty();
+                    $.each(data, function (i, row) {
+                        items += "<option value='" + row.value + "'>" + row.text + "</option>";
+                    });
+                    $("#Nroserie").html(items);
+                });
+            });
+
+        });
+
+</script>
+
+
+
+<script>
+    window.onunload = refreshParent;
+    function refreshParent() {
+        window.opener.location.reload();
+    }
+
+</script>

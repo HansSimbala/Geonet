@@ -1,0 +1,149 @@
+  @import url('https://fonts.googleapis.com/css?family=Mukta');
+
+body {
+    font-family: 'Mukta', sans-serif !important;
+}
+
+  .register-info-box {
+      height: 100vh;
+      background-image: linear-gradient(to bottom, #080954, #080999);
+      box-shadow: 0 0 15px 9px #00000096;
+  }
+
+  .register-info-box img {
+      position: relative;
+      bottom: 20px;
+      right: 25px;
+      width: 200px;
+  }
+
+  .info {
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .info .titulo {
+      color: #fff;
+      font-weight: 800;
+      font-size: 30px;
+  }
+
+  .info p {
+      color: #fff;
+  }
+
+  .label-info{
+      border: 1px solid #9E9E9E;
+      margin-top: 30px;
+      padding: 5px 5px;
+      width: 150px;
+      display: block;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 500;
+      color: #fff;
+      text-align: center;
+      font-size: 18px;
+  }
+
+  .label-info:hover {
+      background: white;
+      text-decoration: none;
+      color: #080954;
+      transition-property: all;
+      transition-duration: 0.2s;
+      transition-timing-function: ease-in;
+  }
+
+  .register-info-box .back{
+      color: #fff;
+      font-size: 20px;
+      position: fixed;
+      bottom: 0%;
+  }
+  .register-info-box .back:hover{
+      text-decoration: none;
+  }
+  /* -----------------formulario------------ */
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario .titulo{
+    font-size: 35px;
+    font-weight: 600;
+}
+.user,
+.password {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #b5b5b5;
+    border-radius: 15px;
+    margin: 20px 0;
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.dato1 {
+    display: flex;
+    flex-direction: row;
+}
+.user input[type="email"],input[type="text"] {
+    border: none;
+    margin-left: 10px;
+    width: 100%;
+    outline: none;
+    height: 80%;
+}
+
+.password input {
+    width: 100%;
+    border: none;
+    margin-left: 10px;
+    width: 100%;
+    outline: none;
+    height: 80%;
+  }
+
+.user .btnInicio {
+  width: 100%;
+  border: none;
+  margin-left: 10px;
+  width: 100%;
+  outline: none;
+  height: 80%;
+}
+
+form button[type="submit"] {
+    max-width: 150px;
+    width: 100%;
+    background: #080954;
+    color: #f9f9f9;
+    border: none;
+    margin: 15px;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    float: right;
+    cursor: pointer;
+}
+form button[type="submit"]:hover{
+    border: 2px solid #080954;
+    background: #fff;
+    color: #080954;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;
+} 
+
+.formulario .forgot{
+    color: #080954;
+    background: none;
+}

@@ -1,0 +1,193 @@
+﻿@model SistemaGeonet.Models.OrdenPedido
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+
+
+
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+
+
+            Pedido Nro:
+            <strong> @Html.DisplayFor(model => model.codigo)</strong>
+            <span class="float-right"> <strong>Fecha:</strong> @Html.DisplayFor(model => model.fechapedido)</span>
+
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <h6 class="mb-3">Para:</h6>
+                    <div>
+                        <strong> @Html.DisplayFor(model => model.usuario)</strong>
+                    </div>
+               
+                </div>
+
+                <div class="col-sm-6">
+               
+
+                    <h6 class="mb-3">De:</h6>
+                    <div>
+                        <strong>GEONET</strong>
+                    </div>
+
+                    <div>71-101 Lince, Peru</div>
+                    <div>Email: geonet.com.pe</div>
+                    <div>Teléfono +48 444 666 3333</div>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="table-responsive-sm">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Equipo
+                            </th>
+                            <th>
+                                Marca
+                            </th>
+                            <th>
+                                SKU
+                            </th>
+                            <th>
+                                Cantidad
+                            </th>
+
+                            
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in ViewData["listaDetallePedido"] as IEnumerable<SistemaGeonet.Models.DetallePedido>)
+
+
+                        {
+
+
+                            <tr>
+
+                                <td>@item.inventario.Equipo.nombre</td>
+                                <td>@item.inventario.Equipo.marca</td>
+                                <td>@item.inventario.SKU  </td>
+                                <td>@item.cantidad</td>
+                                
+
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-5">
+
+                </div>
+
+             
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div style="padding-top:2em; padding-left:5em">
+
+
+    @if (Model.estado.Equals("Por atender"))
+    {
+
+        <button class="btn btn-success mr-2" onclick="myFunction2()"> <i class="fas fa-plus"></i>Sacar Equipos</button>
+        <form asp-action="AtenderOrdenPedido">
+            <button type="submit" class="btn btn-sm btn-primary"> <i class="fa fa-check"></i>Atender OP</button>
+        </form>
+
+    }
+
+</div>
+
+
+
+
+    <div class="table-responsive-sm">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Nro Serie
+                    </th>
+                    <th>
+                        Equipo
+                    </th>
+                    <th>
+                        Marca
+                    </th>
+                    <th>
+                        SKU
+                    </th>
+
+                    <th>
+                        Detalle
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in ViewData["itemxop"] as IEnumerable<SistemaGeonet.Models.Item>)
+
+
+                {
+
+
+                    <tr>
+
+                        <td>@item.Nroserie</td>
+                        <td>@item.Inventario.Equipo.nombre</td>
+                        <td>@item.Inventario.Equipo.marca  </td>
+                        <td>@item.Inventario.SKU </td>
+                        <td>@item.detalle</td>
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+    function myFunction2() {
+    window.open("https://localhost:44301/Item/SacarItem/"+@Model.IdOrdenPedido , "AgregarProducto" , "width=500,height=500,scrollbars=NO")
+    }
+
+
+</script>

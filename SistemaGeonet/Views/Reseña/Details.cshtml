@@ -1,0 +1,43 @@
+﻿@model SistemaGeonet.Models.Reseña
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reseña</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.comentario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.comentario)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.calificacion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.calificacion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.usuario)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.inventario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.inventario.IdInventario)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.idReseña">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

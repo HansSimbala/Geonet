@@ -1,0 +1,116 @@
+﻿
+
+@model IEnumerable<SistemaGeonet.Models.Equipo>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+
+
+<style type="text/css">
+    .table th, .table td {
+        text-align: center;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Equipos</h4>
+            @*<p class="card-description"> Add class <code>.table-striped</code> </p>*@
+            <table class="table table-striped" id="dataTable">
+
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Marca</th>
+                        <th>Categoría</th>
+                        <th>Imagen</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.codigo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.marca)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.categoria.nombre)
+                            </td>
+                            <td>
+                                <img src="~/images/@item.imagen"  height="80" width="80" >
+
+                            </td>
+                            <td>
+                                <a class="btn btn-info" asp-action="DetalleEquipo" asp-route-id="@item.idEquipo"> <i class="fas fa-eye"></i></a>
+                                <a class="btn btn-secondary" asp-action="EditarEquipo" asp-route-id="@item.idEquipo"><i class="fas fa-edit"></i></a>
+                                <a class="btn btn-danger"> <i class="fas fa-trash-alt"></i> </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+
+            }
+        });
+    });
+
+</script>
+
+

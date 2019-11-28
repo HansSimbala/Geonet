@@ -1,0 +1,112 @@
+﻿@model SistemaGeonet.Models.Catalogo
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-header">
+            <strong> Registrar Equipo</strong>
+
+        </div>
+        <div class="card-body">
+            <form asp-action="EditarCatalogo">
+                <input type="hidden" asp-for="idCatalogo" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="idInventario" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <select asp-for="idInventario" class="form-control" asp-items="ViewBag.idInventario"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="cantidadVirtual" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="cantidadVirtual" class="form-control" />
+                                <span asp-validation-for="cantidadVirtual" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="titulo" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="titulo" class="form-control" />
+                                <span asp-validation-for="titulo" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="descripcion" class="col-sm-3 col-form-label"></label>
+                           
+                            <div class="col-sm-9">
+                                <input asp-for="descripcion" class="form-control" />
+                                <span asp-validation-for="descripcion" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="foto1" class="col-sm-3 col-form-label"></label>
+                            
+                            <div class="col-sm-9">
+                                
+                                <input type="file" asp-for="foto1" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="foto2" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input type="file" asp-for="foto2" class="form-control" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="foto3" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input type="file" asp-for="foto3" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="foto4" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input type="file" asp-for="foto4" class="form-control" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-success mr-2"> <i class="fa fa-save"></i> Editar</button>
+                <a asp-action="MenuCatalogo" class="btn btn-light mr-2">    <i class="fa fa-backward"></i> Cancelar</a>
+
+            </form>
+        </div>
+
+
+    </div>
+</div>

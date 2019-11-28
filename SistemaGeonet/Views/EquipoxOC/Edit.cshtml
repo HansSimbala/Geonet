@@ -1,0 +1,42 @@
+﻿@model SistemaGeonet.Models.EquipoxOC
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>EquipoxOC</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="idEquipoxOC" />
+            <div class="form-group">
+                <label asp-for="idEquipo" class="control-label"></label>
+                <select asp-for="idEquipo" class="form-control" asp-items="ViewBag.idEquipo"></select>
+                <span asp-validation-for="idEquipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idOrdenCompra" class="control-label"></label>
+                <select asp-for="idOrdenCompra" class="form-control" asp-items="ViewBag.idOrdenCompra"></select>
+                <span asp-validation-for="idOrdenCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cantidad" class="control-label"></label>
+                <input asp-for="cantidad" class="form-control" />
+                <span asp-validation-for="cantidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

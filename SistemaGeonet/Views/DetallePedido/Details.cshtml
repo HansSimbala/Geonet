@@ -1,0 +1,37 @@
+﻿@model SistemaGeonet.Models.DetallePedido
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DetallePedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idOrdenPedido)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.idOrdenPedido)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.inventario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.inventario.IdInventario)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.idDetallePedido">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

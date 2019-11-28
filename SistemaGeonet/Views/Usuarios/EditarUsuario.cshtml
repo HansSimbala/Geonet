@@ -1,0 +1,79 @@
+﻿@model SistemaGeonet.Models.Usuarios
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+
+<form asp-action="EditarUsuario">
+    <div class="card">
+        <div class="card-header">
+            <strong> Editar Usuario  </strong>
+
+        </div>
+        <div class="card-body">
+
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="email" class="control-label"></label>
+                    <input asp-for="email" class="form-control" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+
+                  
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="nombres" class="control-label"></label>
+                    <input asp-for="nombres" class="form-control" />
+                    <span asp-validation-for="nombres" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+
+
+                    <label asp-for="apellidopaterno" class="control-label"></label>
+                    <input asp-for="apellidopaterno" class="form-control" />
+                    <span asp-validation-for="apellidopaterno" class="text-danger"></span>
+                </div>
+            
+                <div class="form-group col-md-6">
+
+
+                    <label asp-for="apellidomaterno" class="control-label"></label>
+                    <input asp-for="apellidomaterno" class="form-control" />
+                    <span asp-validation-for="apellidomaterno" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+
+
+                    <label asp-for="rol" class="control-label"></label>
+                    <select asp-for="rol" class="form-control ">
+
+                        <option value="AdministradorGeneral">Administrador General</option>
+
+                        <option value="AdministradorAlmacen">Administrador Almacén</option>
+                        <option value="AdministradorLocal"> Administrador Local</option>
+                        <option value="UsuarioCliente">Cliente</option>
+                    </select>
+                </div>
+            
+            </div>
+
+      
+
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-sm btn-primary"> <i class="fa fa-save"></i> Guardar Cambios</button>
+            <a asp-action="MenuUsuarios" class="btn btn-sm btn-danger">  <i class="fa fa-backward"></i> Cancelar</a>
+        </div>
+
+
+    </div>
+</form>

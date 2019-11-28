@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SistemaGeonet.Models.Item>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nroserie)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.detalle)
+                </th>
+              
+                <th>
+                    @Html.DisplayNameFor(model => model.estado)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nroserie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.detalle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inventario.IdInventario)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdItem">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdItem">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdItem">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SistemaGeonet.Models.Reseña>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.comentario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.calificacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.usuario)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inventario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.comentario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.calificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.inventario.IdInventario)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idReseña">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.idReseña">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.idReseña">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

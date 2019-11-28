@@ -1,0 +1,59 @@
+﻿@model SistemaGeonet.Models.Inventario
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+<form asp-action="EditarInventario">
+    <input type="hidden" asp-for="idInventario" />
+    <div class="card">
+        <div class="card-header">
+            <strong> Registrar Equipo</strong>
+
+        </div>
+        <div class="card-body">
+
+            <div class="form-group">
+                <label asp-for="idEquipo" class="control-label"></label>
+                <select asp-for="idEquipo" class="form-control" asp-items="ViewBag.IdEquipo"></select>
+            </div>
+         
+
+            
+
+            <div class="form-group">
+                <label asp-for="cantidadReal" class="control-label"></label>
+                <input asp-for="cantidadReal" class="form-control" />
+                <span asp-validation-for="cantidadReal"text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="cantidadMinima" class="control-label"></label>
+                <input asp-for="cantidadMinima" class="form-control" />
+                <span asp-validation-for="cantidadMinima" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" >
+                <label asp-for="cantidadMaxima" class="control-label"></label>
+                <input asp-for="cantidadMaxima" class="form-control" />
+                <span asp-validation-for="cantidadMaxima" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precioUnit" class="control-label"></label>
+                <input  asp-for="precioUnit" class="form-control" />
+                <span asp-validation-for="precioUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SKU" class="control-label"></label>
+                <input asp-for="SKU" class="form-control" />
+                <span asp-validation-for="SKU" class="text-danger"></span>
+            </div>
+         
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-sm btn-primary"> <i class="fa fa-save"></i> Editar</button>
+        <a asp-action="MenuInventario" class="btn btn-sm btn-danger">  <i class="fa fa-backward"></i> Cancelar</a>
+    </div>
+</form>

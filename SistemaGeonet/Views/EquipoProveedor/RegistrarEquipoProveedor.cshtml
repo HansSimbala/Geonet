@@ -1,0 +1,86 @@
+﻿@model SistemaGeonet.Models.EquipoxProveedor
+
+@{
+    ViewData["Title"] = "RegistrarEquipoProveedor";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+
+<style type="text/css">
+
+    #form {
+        margin-left: 25%;
+        margin-right: 25%;
+        width: 50%;
+    }
+
+    .control-label {
+        font-weight: bold;
+    }
+</style>
+
+
+
+
+
+
+    <form asp-action="RegistrarEquipoProveedor" id="x">
+        <div class="card">
+            <div class="card-header">
+                <strong> Registrar Equipo</strong>
+
+            </div>
+            <div class="card-body">
+
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="idEquipo" class="control-label"></label>
+                        <select asp-for="idEquipo" class="form-control" asp-items="ViewBag.idEquipo"></select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="codigo_proveedor" class="control-label"></label>
+                        <input asp-for="codigo_proveedor" class="form-control" />
+                        <span asp-validation-for="codigo_proveedor" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+
+
+                        <label asp-for="precio" class="control-label"></label>
+                        <input asp-for="precio" class="form-control" />
+                        <span asp-validation-for="precio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+
+
+                        <label asp-for="unidad_medida" class="control-label"></label>
+                        <input asp-for="unidad_medida" class="form-control" />
+                        <span asp-validation-for="unidad_medida" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+
+
+                        <label asp-for="factor_conversion" class="control-label"></label>
+                        <input asp-for="factor_conversion" class="form-control" />
+                        <span asp-validation-for="factor_conversion" class="text-danger"></span>
+                    </div>
+                </div>
+            
+
+     
+
+       
+
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-sm btn-primary"> <i class="fa fa-save"></i> Registrar</button>
+                <a asp-controller="Proveedor" asp-action="DetalleProveedor" asp-route-id=@ViewContext.RouteData.Values["id"] class="btn btn-sm btn-danger">  <i class="fa fa-backward"></i> Cancelar</a>
+            </div>
+
+
+        </div>
+    </form>

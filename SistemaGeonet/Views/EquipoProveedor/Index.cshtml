@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SistemaGeonet.Models.EquipoxProveedor>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.cantidad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.unidad_medida)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.factor_conversion)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.equipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.proveedor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.unidad_medida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.factor_conversion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.equipo.codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.proveedor.direccion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idEquipoxProveedor">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.idEquipoxProveedor">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.idEquipoxProveedor">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

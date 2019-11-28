@@ -1,0 +1,113 @@
+﻿@model SistemaGeonet.Models.Item
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = null;
+
+}
+
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-header">
+            <strong> Agregar Equipo</strong>
+
+        </div>
+        <div class="card-body">
+
+            <form  asp-action="RegistrarItem">
+                <p class="card-description"> </p>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group row" style="display:none">
+                            <label asp-for="IdOrdenCompra" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="IdOrdenCompra" class="form-control" value="@ViewContext.RouteData.Values["id"]"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group row">
+                            <label asp-for="IdInventario" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <select asp-for="IdInventario" class="form-control" asp-items="ViewBag.idInventario"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Nroserie" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="Nroserie" type="text" class="form-control" />
+                                <span asp-validation-for="Nroserie" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="detalle" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="detalle" type="text" class="form-control" />
+                                <span asp-validation-for="detalle" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="estado" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="estado" type="text" value="Activo" readonly class="form-control" />
+                                <span asp-validation-for="estado" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <button type="submit" class="btn btn-success mr-2"> <i class="fa fa-save"></i> Registrar</button>
+
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<script>
+    window.onunload = refreshParent;
+    function refreshParent() {
+        window.opener.location.reload();
+    }
+
+</script>

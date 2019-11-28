@@ -1,0 +1,122 @@
+﻿@model SistemaGeonet.Models.OrdenCompra
+
+@{
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+</head>
+
+
+
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-header">
+            <strong> Nueva Compra</strong>
+
+        </div>
+        <div class="card-body">
+
+
+
+            <form asp-action="RegistrarOrdenCompra" id="x" class="needs-validation" novalidate>
+
+
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+
+
+                        <label asp-for="codigo" class="control-label"></label>
+                        <input asp-for="codigo" class="form-control" required/>
+                        <span asp-validation-for="codigo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+
+                        <label asp-for="idProveedor" class="control-label"></label>
+                        <select asp-for="idProveedor" class="form-control" asp-items="ViewBag.idProveedor" required>
+                            <option value="" disabled selected>Seleecione un proveedor</option>
+                        </select>
+
+
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+
+
+                        <label asp-for="subtotal" class="control-label"></label>
+                        <input asp-for="subtotal" value="0.00" readonly class="form-control" />
+                        <span asp-validation-for="subtotal" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+
+
+                        <label asp-for="igv" class="control-label"></label>
+                        <input asp-for="igv" value="0.00" readonly class="form-control" />
+                        <span asp-validation-for="igv" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+
+                        <label asp-for="total" class="control-label"></label>
+                        <input asp-for="total" value="0.00" readonly class="form-control" />
+                        <span asp-validation-for="total" class="text-danger"></span>
+
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+
+
+                        <label asp-for="estado" class="control-label"></label>
+                        <input asp-for="estado" value="Pendiente" readonly class="form-control" />
+                        <span asp-validation-for="estado" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="btn btn-success mr-2"> <i class="fa fa-save"></i> Registrar</button>
+                <a asp-action="MenuOrdenCompra" class="btn btn-light mr-2">    <i class="fa fa-backward"></i> Cancelar</a>
+
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>

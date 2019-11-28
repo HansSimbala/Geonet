@@ -1,0 +1,49 @@
+﻿@model SistemaGeonet.Models.EquipoxProveedor
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EquipoxProveedor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.unidad_medida)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.unidad_medida)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.factor_conversion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.factor_conversion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.equipo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.equipo.codigo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.proveedor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.proveedor.direccion)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.idEquipoxProveedor">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,170 @@
+﻿@model SistemaGeonet.Models.OrdenCompra
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+
+
+
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+
+
+            Compra
+            <strong> @Html.DisplayFor(model => model.codigo)</strong>
+            <span class="float-right"> <strong>Fecha:</strong> @Html.DisplayFor(model => model.fecha)</span>
+
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <h6 class="mb-3">De:</h6>
+                    <div>
+                        <strong>GEONET</strong>
+                    </div>
+
+                    <div>71-101 Lince, Peru</div>
+                    <div>Email: geonet.com.pe</div>
+                    <div>Teléfono +48 444 666 3333</div>
+                </div>
+
+                <div class="col-sm-6">
+                    <h6 class="mb-3">Para:</h6>
+                    <div>
+                        <strong> @Html.DisplayFor(model => model.proveedor.nombre_empresa)</strong>
+                    </div>
+                    <div> @Html.DisplayFor(model => model.proveedor.nombre_contacto)</div>
+                    <div> @Html.DisplayFor(model => model.proveedor.direccion),  @Html.DisplayFor(model => model.proveedor.pais)  </div>
+                    <div>Email: @Html.DisplayFor(model => model.proveedor.email)</div>
+                    <div>Teléfono:  @Html.DisplayFor(model => model.proveedor.telefono)</div>
+                </div>
+
+
+
+            </div>
+
+            <div class="table-responsive-sm">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Equipo
+                            </th>
+                            <th>
+                                Marca
+                            </th>
+                            <th>
+                                Precio ($)
+                            </th>
+                            <th>
+                                Cantidad
+                            </th>
+
+                            <th>
+                                Precio Total ($)
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in ViewData["listaEquipoxOC"] as IEnumerable<SistemaGeonet.Models.EquipoxOC>)
+
+
+                        {
+
+
+                            <tr>
+
+                                <td>@item.equipoxproveedor.equipo.nombre</td>
+                                <td>@item.equipoxproveedor.equipo.marca</td>
+                                <td>@item.precioUnit  </td>
+                                <td>@item.cantidad</td>
+                                <td>@item.precioTotal</td>
+
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-5">
+
+                </div>
+
+                <div class="col-lg-4 col-sm-5 ml-auto">
+                    <table class="table table-clear">
+                        <tbody>
+                            <tr>
+                                <td class="left">
+                                    <strong>Subtotal</strong>
+                                </td>
+                                <td class="right">$@Html.DisplayFor(model => model.subtotal)</td>
+                            </tr>
+
+                            <tr>
+                                <td class="left">
+                                    <strong>IGV (18%)</strong>
+                                </td>
+                                <td class="right">$@Html.DisplayFor(model => model.igv)</td>
+                            </tr>
+                            <tr>
+                                <td class="left">
+                                    <strong>Total</strong>
+                                </td>
+                                <td class="right">
+                                    <strong>$@Html.DisplayFor(model => model.total)</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div style="padding-top:2em; padding-left:5em">
+    @if (Model.estado.Equals("Pendiente"))
+    {<button class="btn btn-success mr-2" onclick="myFunction()"> <i class="fas fa-plus"></i>Agregar Equipos</button>
+
+        <form asp-action="DetalleOrdenCompra">
+            <button type="submit" class="btn btn-sm btn-primary"> <i class="fa fa-check"></i>Confirmar OC</button>
+        </form>}
+
+ 
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function myFunction() {
+    window.open("https://localhost:44301/EquipoxOC/RegistrarEquipoxOC/"+@Model.idOrdenCompra , "AgregarProducto" , "width=1000,height=300,scrollbars=NO")
+    }
+
+    function myFunction2() {
+    window.open("https://localhost:44301/Item/RegistrarItem/"+@Model.idOrdenCompra , "AgregarProducto" , "width=500,height=500,scrollbars=NO")
+    }
+
+
+</script>

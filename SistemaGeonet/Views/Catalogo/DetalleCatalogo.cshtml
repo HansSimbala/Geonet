@@ -1,0 +1,138 @@
+﻿@model SistemaGeonet.Models.Catalogo
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+
+
+            <strong> Detalle Equipo </strong>
+
+
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <div>
+                        <strong>GEONET</strong>
+                    </div>
+
+                    <div><strong>Titulo :</strong> @Html.DisplayFor(model => model.titulo)</div>
+
+                    <div><strong>Descripción: </strong> @Html.DisplayFor(model => model.descripcion)</div>
+                    <div><strong>Cantidad:</strong>  @Html.DisplayFor(model => model.cantidadVirtual)</div>
+                </div>
+
+                <div class="col-sm-6">
+                    <h6 class="mb-3">Imagen 1:</h6>
+                    <div>
+                        <img src="~/images/@Html.DisplayFor(model => model.foto1)" height="80" width="80" />"
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <h6 class="mb-3">Imagen 2:</h6>
+
+                    <img src="~/images/@Html.DisplayFor(model => model.foto2)" height="80" width="80" />"
+                </div>
+
+                <div class="col-sm-6">
+                    <h6 class="mb-3">Imagen 3:</h6>
+                    <div>
+                        <img src="~/images/@Html.DisplayFor(model => model.foto3)" height="80" width="80" />"
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="table-responsive-sm">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Comentario
+                    </th>
+                    <th>
+                        Calificacion
+                    </th>
+                 
+                 
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in ViewData["listareseña"] as IEnumerable<SistemaGeonet.Models.Reseña>)
+
+
+                {
+                    if (Model.idCatalogo==item.catalogo.idCatalogo)
+                    {<tr>
+
+    <td>@item.comentario</td>
+    @if (item.calificacion == 1)
+    {
+        <td>
+            <div class="progress">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </td>       }
+    @if (item.calificacion == 2)
+    {
+        <td>
+            <div class="progress">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </td>}
+    @if (item.calificacion == 3)
+    {
+        <td>
+            <div class="progress">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </td>       }
+
+
+    @if (item.calificacion == 4)
+    {
+        <td>
+            <div class="progress">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </td>       }
+
+
+    @if (item.calificacion == 5)
+    {
+        <td>
+            <div class="progress">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </td>       }
+
+
+</tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

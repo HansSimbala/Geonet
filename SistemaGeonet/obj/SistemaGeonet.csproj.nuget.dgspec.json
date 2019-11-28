@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ALVARO CAM\\Documents\\TPIV-2K19-2\\SistemaGeonet3\\SistemaGeonet\\SistemaGeonet.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ALVARO CAM\\Documents\\TPIV-2K19-2\\SistemaGeonet3\\SistemaGeonet\\SistemaGeonet.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ALVARO CAM\\Documents\\TPIV-2K19-2\\SistemaGeonet3\\SistemaGeonet\\SistemaGeonet.csproj",
+        "projectName": "SistemaGeonet",
+        "projectPath": "C:\\Users\\ALVARO CAM\\Documents\\TPIV-2K19-2\\SistemaGeonet3\\SistemaGeonet\\SistemaGeonet.csproj",
+        "packagesPath": "C:\\Users\\ALVARO CAM\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ALVARO CAM\\Documents\\TPIV-2K19-2\\SistemaGeonet3\\SistemaGeonet\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ALVARO CAM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.All": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.0.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.4, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

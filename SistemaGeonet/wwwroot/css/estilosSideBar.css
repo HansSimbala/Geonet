@@ -1,0 +1,33 @@
+﻿.menu a{
+    text-transform: uppercase;
+}
+.menu li {
+    box-shadow: 3px 0 rgba(255,255,255,.2) inset;
+    /*line-height: 42px;
+    margin: 2em auto;
+    padding-left: 0;
+    width: 15em;*/
+    margin-bottom: 5px;
+    padding-left: 1.5em;
+    width: auto;
+    --webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+    .menu li:hover {
+        box-shadow: 15em 0 rgba(255,255,255,.2) inset;
+    }
+    .menu a:hover{
+        margin-left: 1em;
+    }
+.menu a {
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.menu {
+    margin: auto;
+}
+.logo {
+    margin-left: 1em;
+}

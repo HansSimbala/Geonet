@@ -1,0 +1,82 @@
+﻿@model SistemaGeonet.Models.Usuarios
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <strong> Usuario :  @Html.DisplayFor(model => model.nombres)  @Html.DisplayFor(model => model.apellidopaterno)  @Html.DisplayFor(model => model.apellidomaterno) </strong>
+
+    </div>
+    <div class="card-body">
+
+
+        <dl class="dl-horizontal">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.rol)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.rol)
+                    </dd>
+
+                </div>
+                <div class="form-group col-md-4">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.telefono)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.telefono)
+                    </dd>
+
+                </div>
+                <div class="form-group col-md-4">
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.email)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.email)
+                    </dd>
+
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.documento)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.documento)
+                    </dd>
+
+                </div>
+
+               
+
+
+              
+            </div>
+
+
+        </dl>
+
+    </div>
+
+    <div class="card-footer">
+
+        <a asp-action="MenuUsuarios" class="btn btn-sm btn-danger">  <i class="fa fa-backward"></i> Volver</a>
+    </div>
+
+
+</div>

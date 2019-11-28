@@ -1,0 +1,33 @@
+﻿@model SistemaGeonet.Models.Inventario
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+
+        <form asp-action="RegistrarInventario">
+            <div class="card">
+                <div class="card-header">
+                    <strong> Registrar Equipo</strong>
+
+                </div>
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label asp-for="IdEquipo" class="control-label"></label>
+                        <select asp-for="IdEquipo" class="form-control" asp-items="ViewBag.IdEquipo"></select>
+                    </div>
+               
+
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-sm btn-primary"> <i class="fa fa-save"></i> Registrar</button>
+                <a asp-action="MenuInventario" class="btn btn-sm btn-danger">  <i class="fa fa-backward"></i> Cancelar</a>
+            </div>
+        </form>
+  
+

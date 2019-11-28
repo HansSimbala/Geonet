@@ -1,0 +1,146 @@
+﻿@model IEnumerable<SistemaGeonet.Models.Proveedor>
+
+@{
+    ViewData["Title"] = "MenuProveedor";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+
+<style type="text/css">
+    .table th, .table td {
+        text-align: center;
+    }
+</style>
+
+
+
+
+
+
+
+<!-- DataTales Example -->
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Proveedores</h4>
+            <p class="card-description">  <a asp-action="RegistrarProveedor"  class="btn btn-success mr-2" > <i class="fa fa-plus" aria-hidden="true"></i> Registrar</a> </p>
+            <table class="table table-striped" id="dataTable">
+
+                <thead>
+                    <tr>
+                        <th>Proveedor</th>
+                        <th>Nombre</th>
+                        <th>Contacto</th>
+                        <th>Pais</th>
+                        <th>Direccion</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img src="~/assets/images/faces-clipart/pic-1.png" alt="image" />
+                            </td>
+                           
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre_empresa)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre_contacto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.pais)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.direccion)
+                            </td>
+                            <td>
+                                <a class="btn btn-info" asp-action="DetalleProveedor" asp-route-id="@item.idProveedor">  <i class="fas fa-eye"></i></a>
+                                <a class="btn btn-secondary" asp-action="EditarProveedor" asp-route-id="@item.idProveedor"><i class="fas fa-edit"></i></a>
+                                <a class="btn btn-danger"> <i class="fas fa-trash-alt"></i> </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+
+            }
+        });
+    });
+
+</script>
+
+
+
+
+<!-- Page level custom scripts -->

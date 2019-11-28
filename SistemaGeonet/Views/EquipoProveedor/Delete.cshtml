@@ -1,0 +1,52 @@
+﻿@model SistemaGeonet.Models.EquipoxProveedor
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>EquipoxProveedor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.unidad_medida)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.unidad_medida)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.factor_conversion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.factor_conversion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.equipo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.equipo.codigo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.proveedor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.proveedor.direccion)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="idEquipoxProveedor" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

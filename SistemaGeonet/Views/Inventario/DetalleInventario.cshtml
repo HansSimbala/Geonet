@@ -1,0 +1,116 @@
+﻿@model SistemaGeonet.Models.Inventario
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <strong> Detalle    : @Html.DisplayFor(model => model.Equipo.nombre)    @Html.DisplayFor(model => model.Equipo.marca) </strong>
+
+    </div>
+    <div class="card-body">
+
+
+        <dl class="dl-horizontal">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.nombre)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.nombre)
+                    </dd>
+
+                </div>
+                <div class="form-group col-md-4">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.marca)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.marca)
+                    </dd>
+
+                </div>
+
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.cantidadReal)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.cantidadReal)
+                    </dd>
+
+                </div>
+
+                <div class="form-group col-md-4">
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.cantidadMinima)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.cantidadMinima)
+                    </dd>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.cantidadMaxima)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.cantidadMaxima)
+                    </dd>
+
+                </div>
+
+                <div class="form-group col-md-4">
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.precioUnit)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.precioUnit)
+                    </dd>
+
+                   
+
+                </div>
+
+         
+
+            </div>
+
+
+
+
+        </dl>
+
+    </div>
+
+    <div class="card-footer">
+
+        <a asp-action="MenuInventario" class="btn btn-sm btn-danger">  <i class="fa fa-backward"></i> Volver</a>
+    </div>
+
+
+</div>

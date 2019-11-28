@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SistemaGeonet.Models.DetallePedido>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAlmAd.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.idOrdenPedido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.cantidad)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inventario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idOrdenPedido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.inventario.IdInventario)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idDetallePedido">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.idDetallePedido">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.idDetallePedido">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,144 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Registro
+    </title>
+    <link rel="shortcut icon" href="~/images/logotipo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="~/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link href="~/css/register.css" rel="stylesheet">
+    <script src="~/js/fontawesome.min.js"></script>
+    <script src="~/js/solid.min.js"></script>
+    <script src="~/js/brands.min.js"></script>
+</head>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7 register-info-box">
+            <img src="~/images/logo.png" alt="">
+            <div class="info">
+                <p class="titulo">
+                    Bienvenido a Geonet
+                </p>
+                <p class="text-center">
+                    ¿Ya tienes cuenta? <br>
+                    Que esperas Inicia Sesión ahora mismo <br> y descubre lo que tenemos para ti
+                </p>
+                <a class="label-info" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]">Iniciar Sesión</a>
+            </div>
+            
+            <a class="back" asp-area="" asp-controller="Inventarios" asp-action="Index">@*<i class="fas fa-arrow-left"></i>*@ Volver</a>
+        </div>
+        <div class="col-md-5 formulario">
+            <p class="titulo">
+                REGISTRARSE
+            </p>
+            <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" class="needs-validation" novalidate>
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="user form-group">                    
+                    <i class="fas fa-user "></i>
+                    <input asp-for="Email" placeholder="Email" title="Ingresa tu correo Electrónico" type="email" class="form-control @ViewData["corVal"]"  id="inlineFormInputGroup" required>
+                </div>
+                <div class="user password">
+                    <i class="fas fa-key">
+                    </i>
+                    <input asp-for="Password" placeholder="Contraseña" id="txtContraseña" class="form-control @ViewData["passVal"]" type="password" required>
+                    <a class="yes ">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a class="no d-none ">
+                        <i class="fas fa-eye-slash "></i>
+                    </a>
+                </div>
+                <div class="password">
+                    <i class="fas fa-key">
+                    </i>
+                    <input asp-for="ConfirmPassword" placeholder=" Repetir Contraseña" class="form-control @ViewData["passVal"]"  id="txtContraseña" required type="password">
+                    <a class="yes ">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a class="no d-none ">
+                        <i class="fas fa-eye-slash "></i>
+                    </a>
+                </div>
+                <div class="user">
+                    <i class="fas fa-signature"></i>
+                    <input asp-for="Nombres" placeholder="Nombres" class="form-control @ViewData["nomVal"]" required type="text" />
+                </div>
+                <div class="dato1">
+                    <div class="user ">
+                        <i class="fas fa-signature"></i>
+                        <input asp-for="ApellidoPaterno" placeholder="Apellido P"  class="form-control @ViewData["apatVal"]" required type="text" />
+                    </div>
+                    <div class="user ">
+                        <i class="fas fa-signature"></i>
+                        <input asp-for="ApellidoMaterno" placeholder="Apellido M" class="form-control @ViewData["amatVal"]" required type="text" />
+                    </div>
+                </div>
+                <div class="dato1">
+                    <div class="user">
+                        <i class="fas fa-phone-square-alt"></i>
+                        <input asp-for="Telefono" placeholder="Telefono" required class="form-control @ViewData["telVal"] ml-2" type="text" />
+                    </div>
+                    <div class="user">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input asp-for="Direccion" placeholder="Direccion" required class="form-control @ViewData["dirVal"]" type="text" />
+                    </div>
+                </div>
+                <div class="dato1">
+                    <select asp-for="IdTipoDocumento" class="document form-control-sm " id="tpd" required>
+                        <option value="1">DNI</option>
+                        <option value="2">Carnet de Extranjería</option>
+                    </select>
+                    <div class="user">
+                        <i class="fas fa-id-card-alt"></i>
+                        <input asp-for="Documento" class="form-control @ViewData["docVal"]" placeholder="Ejemplo: 0687549889" required type="text" />
+                    </div>
+
+                </div>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+<script defer="" src="~/js/fontawesome.min.js">
+</script>
+<script defer="" src="~/js/brands.min.js">
+</script>
+<script defer="" src="~/js/solid.min.js">
+</script>
+<script src="~/js/jquery-3.4.1.min.js">
+</script>
+<script src="~/js/login.js"></script>
+
+
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

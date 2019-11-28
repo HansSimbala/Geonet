@@ -1,0 +1,92 @@
+.header {
+  color: #080954;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+form .buscar {
+  width: 350px;
+  padding-left: 15px;
+}
+form .btnBuscar {
+  border-radius: 5px;
+  border: 1px solid #080954;
+}
+form .btnBuscar:hover {
+  background: #ebb630;
+  border: none;
+  color: #080954;
+}
+
+.cart {
+  color: #080954;
+  margin-left: 100px;
+}
+.cart:hover {
+  color: #ebb630;
+}
+.login {
+  margin-left: 50px;
+  color: #080954;
+  box-sizing: content-box;
+}
+.login:hover {
+  color: #ebb630;
+}
+
+@media (max-width: 992px) {
+  .cart {
+    margin: 30px 0px;
+    display: block;
+  }
+  .login {
+    margin: 0px;
+  }
+}
+.nave {
+  width: 18%;
+  background: #080954;
+  height: 100%;
+}
+
+.aside {
+  padding: 25px 20px;
+  margin: 0px;
+  width: 20%;
+  height: 1500px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.aside div {
+  margin-bottom: 15px;
+}
+
+.aside div .titulo {
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.aside div a {
+  display: block;
+  color: #080954;
+  margin-bottom: 5px;
+  text-decoration: none;
+  height: 30px;
+  padding-left: 10px;
+}
+
+.aside div a:hover {
+  border-left: 4px solid #ebb630;
+  font-weight: 800;
+}
+
+main {
+  width: 100%;
+}
+
+.footer {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
