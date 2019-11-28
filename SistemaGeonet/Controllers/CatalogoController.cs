@@ -25,6 +25,11 @@ namespace SistemaGeonet.Controllers
             return View(await _context.Catalogo.Include(u=>u.inventario).ThenInclude(u=>u.Equipo).ToListAsync());
         }
 
+        public async Task<IActionResult> IndiceCatalogo()
+        {
+            return View(await _context.Catalogo.Include(u => u.inventario).ThenInclude(u => u.Equipo).ToListAsync());
+        }
+
         // GET: Catalogo/Details/5
         public async Task<IActionResult> DetalleCatalogo(int? id)
         {
@@ -43,7 +48,23 @@ namespace SistemaGeonet.Controllers
             List<Reseña> listareseña = _context.Set<Reseña>().Include(s => s.catalogo).ToList();
             ViewData["listareseña"] = listareseña;
 
+            return View(catalogo);
+        }
 
+        // GET: Catalogo/Details/5
+        public async Task<IActionResult> DetalleProductoCatalogo(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var catalogo = await _context.Catalogo
+                .SingleOrDefaultAsync(m => m.idCatalogo == id);
+            if (catalogo == null)
+            {
+                return NotFound();
+            }
 
             return View(catalogo);
         }

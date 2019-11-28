@@ -1,0 +1,165 @@
+﻿@model IEnumerable<SistemaGeonet.Models.Carrito>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<div class="card">
+    <table class="table table-hover shopping-cart-wrap">
+        <thead class="text-muted">
+            <tr>
+                <th scope="col">Equipo</th>
+                <th scope="col" width="120">Cantidad</th>
+                <th scope="col" width="120">Precio</th>
+                <th scope="col" width="200" class="text-right">Acción</th>
+            </tr>
+        </thead>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            @foreach (var item in ViewData["listaDetalleCarrito"] as IEnumerable<SistemaGeonet.Models.DetallePedido>)
+            {
+
+                if (item.idCarrito == (ViewBag.idcarrito))
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <figure class="media">
+                                    <div class="img-wrap"><img src="~/images/@item.inventario.Equipo" class="img-thumbnail img-sm" width="150px" height="150px"></div>
+                                    <figcaption class="media-body">
+                                        <h6 class="title text-truncate"><strong>@item.inventario.Equipo.nombre </strong></h6>
+                                        <dl class="param param-inline small">
+                                            <dt>Marca: </dt>
+                                            <dd>@item.inventario.Equipo.marca</dd>
+                                        </dl>
+                                        <dl class="param param-inline small">
+                                            <dt>Descripción: </dt>
+                                            <dd>@item.inventario.SKU</dd>
+                                        </dl>
+                                    </figcaption>
+                                </figure>
+                            </td>
+                            <td>
+                                <input type="number" id="@item.idDetallePedido" value="@item.cantidad" class="form-control input-number  text-center" onchange="editQuantity(@item.idDetallePedido)" />
+                            </td>
+                            <td>
+                                <div class="price-wrap">
+                                    <var class="price">USD @item.inventario.precioUnit</var>
+                                    @*<small class="text-muted">(USD5 C/U)</small>*@
+                                </div> <!-- price-wrap .// -->
+                            </td>
+                            <td class="text-right" onclick="FuntionDecreciente()">
+                                <button type="button" onclick="eliminar(@item.idDetallePedido)" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            }
+        }
+        else
+        {
+            <tbody id="IdOrden"></tbody>
+        }
+    </table>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @foreach (var item in Model)
+        {
+            if (item.idUsuario == UserManager.GetUserId(User))
+            {
+                <div class="agrupar text-right">
+                    <div data-name="Subtotals" class="a-row a-spacing-mini sc-subtotal sc-java-remote-feature">
+                        <span id="sc-subtotal-label-buybox" class="a-size-medium sc-number-of-items">
+                            Subtotal:
+                        </span>
+                        <span id="sc-subtotal-amount-buybox" class="a-color-price sc-price-container a-text-bold">
+                            <span class="a-size-medium a-color-price sc-price sc-white-space-nowrap sc-price-sign">
+                                USD @Html.DisplayFor(modelItem => item.subtotal)
+                            </span>
+                        </span>
+                    </div>
+                    <br />
+                    <div class="text-right">
+                        <a onclick="createOrden(@item.idCarrito)" class="btn btn-primary">
+                            Proceder al pago
+                        </a>
+                    </div>
+                </div>
+            }
+        }
+    }
+    else
+    {
+        <div class="agrupar text-right">
+            <div data-name="Subtotals" class="a-row a-spacing-mini sc-subtotal sc-java-remote-feature">
+                <span id="sc-subtotal-label-buybox" class="a-size-medium sc-number-of-items">
+                    Subtotal:
+                </span>
+                <span id="sc-subtotal-amount-buybox" class="a-color-price sc-price-container a-text-bold">
+                    <span class="a-size-medium a-color-price sc-price sc-white-space-nowrap sc-price-sign">
+                        USD
+                    </span>
+                </span>
+            </div>
+            <br />
+            <div class="text-right">
+                <a asp-controller="Account" asp-action="Login" class="btn btn-primary">
+                    Proceder al pago
+                </a>
+            </div>
+        </div>
+
+    }
+
+</div>
+<script src="~/js/main.js"></script>
+<script src="~/js/delete.js"></script>
+<script src="~/js/edit.js"></script>
+<script src="~/js/crearorden.js"></script>
+<script src="~/js/equiposls.js"></script>
+
+@*<h2>Index</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.idUsuario)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.subtotal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.estado)
+                    </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.subtotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.idCarrito">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.idCarrito">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.idCarrito">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +14,12 @@ namespace SistemaGeonet.Controllers
     public class DetallePedidoController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public DetallePedidoController(ApplicationDbContext context)
+        public DetallePedidoController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: DetallePedido
@@ -67,6 +70,27 @@ namespace SistemaGeonet.Controllers
             }
             ViewData["idInventario"] = new SelectList(_context.Inventario, "IdInventario", "IdInventario", detallePedido.idInventario);
             return View(detallePedido);
+        }
+
+        // POST: DetallePedido/Agregar
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        public async Task<String> Agregar(int hasOrden, int IdCarrito, int IdEquipo, int cantidad, DetallePedido detallePedido)
+        {
+            var userId = _userManager.GetUserId(User);
+            var tCarrito = await _context.Carrito.SingleOrDefaultAsync(m => m.idUsuario == userId);
+            var idCarrito = tCarrito.idCarrito;
+            detallePedido = new DetallePedido
+            {
+                hasOrden = hasOrden,
+                idCarrito = idCarrito,
+                idInventario = IdEquipo,
+                cantidad = cantidad
+            };
+            _context.Add(detallePedido);
+            await _context.SaveChangesAsync();
+            return "success";
         }
 
         // GET: DetallePedido/Edit/5

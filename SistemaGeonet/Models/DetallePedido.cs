@@ -17,10 +17,11 @@ namespace SistemaGeonet.Models
 
         public int cantidad { get; set; }
 
+        public int hasOrden { get; set; }
+
+        public int idCarrito { get; set; }
+
         public  Inventario inventario { get; set; }
-
-      
-
 
     }
 }

@@ -1,0 +1,37 @@
+﻿@model SistemaGeonet.Models.Carrito
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Carrito</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idUsuario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.idUsuario)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.subtotal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.subtotal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.idCarrito">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

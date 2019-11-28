@@ -1,0 +1,281 @@
+﻿@model IEnumerable<SistemaGeonet.Models.Catalogo>
+
+@{
+    ViewData["Title"] = "IndiceCatalogo";
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<head>
+    <link href="~/css/star.css" rel="stylesheet" />
+</head>
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+        <li data-target="#demo" data-slide-to="4"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="../images/banner1.jpg" style="width: 100%;" alt="Chicago">
+        </div>
+        <div class="carousel-item">
+            <img src="../images/banner2.jfif" style="width: 100%;" alt="Chicago">
+        </div>
+        <div class="carousel-item">
+            <img src="../images/banner3.jfif" style="width: 100%;" alt="Chicago">
+        </div>
+        <div class="carousel-item">
+            <img src="../images/banner4.jfif" style="width: 100%;" alt="Chicago">
+        </div>
+        <!-- <div class="carousel-item">
+             <img src="../images/banner3.jfif" alt="Chicago">
+            </div> -->
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+
+</div>
+<div class="ofertas">
+    <div class="titulo">
+        <h3>Precios de Locura</h3>
+    </div>
+    <div class="container">
+        <div class="row col-md-12">
+            @foreach (var item in Model)
+            {
+                <div class=" col-md-3 col-sm-6">
+                    <div class="product-grid7">
+                        <div class="product-image7">
+                            <a asp-controller="catalogo" asp-action="DetalleProductoCatalogo" asp-route-id="@item.idCatalogo">
+                                <img class="pic-1" src="~/images/@Html.DisplayFor(modelItem => item.foto1)">
+                            </a>
+                            <ul class="social">
+                                <li hidden><a href=""><i class="fas fa-search"></i></a></li>
+                                <li hidden><a href=""><i class="fas fa-heart"></i></a></li>
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    <li id="idcant" value="1" hidden></li>
+                                    <li><a onclick="agregarCarrito(@Html.DisplayFor(modelItem => item.inventario.idInventario), 'idcant')"><i class="fas fa-shopping-cart"></i></a></li>
+                                }
+                                else
+                                {
+                                    <li value="1" hidden></li>
+                                    <li><a onclick="agregarCarritoLS(@Html.DisplayFor(modelItem => item.inventario.idInventario))"><i class="fas fa-shopping-cart"></i></a></li>
+                                }
+                            </ul>
+                            <span class="product-new-label">Oferta</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">@Html.DisplayFor(modelItem => item.inventario.Equipo.nombre)</a></h3>
+                            <ul class="rating">
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                            </ul>
+                            <div class="price">
+                                $@Html.DisplayFor(modelItem => item.inventario.precioUnit)
+                                <span>$@Html.DisplayFor(modelItem => item.inventario.precioUnit)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="productos">
+    <div class="titulo">
+        <h3>Productos</h3>
+    </div>
+    <div class="container">
+        <div class="row col-md-12">
+            <div class="single-item col-md-4 col-sm-6">
+                <a href="#" class="productl">
+                    <div class="card producto">
+                        <img src="../images/estacion.jpg" class="card-img-top" alt="...">
+                    </div>
+                </a>
+            </div>
+            <div class="single-item col-md-4 col-sm-6">
+                <a href="#" class="productl">
+                    <div class="card producto">
+                        <img src="../images/drones.jpg" class="card-img-top" alt="...">
+                    </div>
+                </a>
+            </div>
+            <div class="single-item col-md-4 col-sm-6">
+                <a href="#" class="productl">
+                    <div class="card producto">
+                        <img src="~/images/gps_diferencial.jpg" class="card-img-top" alt="...">
+                    </div>
+                </a>
+            </div>
+            <div class="single-item col-md-4 col-sm-6">
+                <a href="#" class="productl">
+                    <div class="card producto">
+                        <img src="../images/scanner_laser.jpg" class="card-img-top" alt="...">
+                    </div>
+                </a>
+            </div>
+            <div class="single-item col-md-4 col-sm-6">
+                <a href="#" class="productl">
+                    <div class="card producto">
+                        <img src="../images/niveles.jpg" class="card-img-top" alt="...">
+                    </div>
+                </a>
+            </div>
+            <div class="single-item col-md-4 col-sm-6">
+                <a href="#" class="productl">
+                    <div class="card producto">
+                        <img src="../images/teodolitos.png" class="card-img-top" alt="...">
+                    </div>
+                </a>
+            </div>
+            <div class="single-item col-md-4 col-sm-6">
+                <a href="#" class="productl">
+                    <div class="card producto">
+                        <img src="../images/distanciometro.jpg" class="card-img-top" alt="...">
+                    </div>
+                </a>
+            </div>
+            <div class="single-item col-md-4 col-sm-6">
+                <a href="#" class="productl">
+                    <div class="card producto">
+                        <img src="../images/gps_navegador.jpg" class="card-img-top" alt="...">
+                    </div>
+                </a>
+            </div>
+            <div class="single-item col-md-4 col-sm-6">
+                <a href="#" class="productl">
+                    <div class="card producto">
+                        <img src="../images/brujula.jpg" class="card-img-top" alt="...">
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="marcas">
+    <div class="titulo">
+        <h3>Marcas</h3>
+    </div>
+    <div class="container">
+        <div class="marca row col-md-12 text-center">
+            <div class="col-md-4">
+                <a href="#">
+                    <img src="../images/logo1.png" style="width:50%" alt="">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#">
+                    <img src="../images/logo2.png" style="width:50%" alt="">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#">
+                    <img src="../images/logo3.png" style="width:50%" alt="">
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="~/js/agregar.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="~/js/main.js"></script>
+
+@*<h2>IndiceCatalogo</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.cantidadVirtual)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.titulo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.foto1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.foto2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.foto3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.foto4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.calificacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.inventario)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cantidadVirtual)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.titulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.foto1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.foto2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.foto3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.foto4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.calificacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.inventario.idInventario)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.idCatalogo">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.idCatalogo">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.idCatalogo">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@

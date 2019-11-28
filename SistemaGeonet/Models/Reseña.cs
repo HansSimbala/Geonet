@@ -23,6 +23,5 @@ namespace SistemaGeonet.Models
 
         public Catalogo catalogo { get; set; }
 
-
     }
 }

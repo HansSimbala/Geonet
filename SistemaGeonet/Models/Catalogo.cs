@@ -12,8 +12,6 @@ namespace SistemaGeonet.Models
     public class Catalogo
     {
         [Key]
-
-
         public int idCatalogo { get; set; }
 
         [DisplayName("Nombre")]
@@ -39,6 +37,8 @@ namespace SistemaGeonet.Models
 
         [DisplayName("Imagen 4")]
         public string foto4 { get; set; }
+
+        public int? calificacion { get; set; }
 
         public Inventario inventario { get; set; }
 

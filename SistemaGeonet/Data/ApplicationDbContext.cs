@@ -56,5 +56,7 @@ namespace SistemaGeonet.Data
 
         public DbSet<SistemaGeonet.Models.Reseña> Reseña { get; set; }
 
+        public DbSet<SistemaGeonet.Models.Carrito> Carrito { get; set; }
+
     }
 }

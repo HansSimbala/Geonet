@@ -1,0 +1,214 @@
+
+
+
+.ofertas {
+    margin-top: 15px;
+}
+
+.titulo {
+    width: 100%;
+    height: 10vh;
+    padding: 50px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo h3 {
+    color: #91908f;
+    font-size: 35px;
+    font-weight: 800;
+}
+
+.product-grid7 {
+    font-family: 'Roboto Slab', serif;
+    position: relative;
+    z-index: 1
+}
+
+.product-grid7 .product-image7 {
+    border: 1px solid rgba(0, 0, 0, .1);
+    overflow: hidden;
+    perspective: 1500px;
+    position: relative;
+    transition: all .3s ease 0s
+}
+
+.product-grid7 .product-image7 a {
+    display: block
+}
+
+.product-grid7 .product-image7 img {
+    width: 100%;
+    height: auto
+}
+
+.product-grid7 .pic-1 {
+    opacity: 1;
+    transition: all .5s ease-out 0s
+}
+
+.product-grid7 .pic-2 {
+    opacity: 0;
+    transform: rotateY(-90deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .5s ease-out 0s
+}
+
+.product-grid7:hover .pic-2 {
+    opacity: 1;
+    transform: rotateY(0)
+}
+
+.product-grid7 .social {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    bottom: 3px;
+    left: -20%;
+    z-index: 1;
+    transition: all .5s ease 0s
+}
+
+.product-grid7:hover .social {
+    left: 17px
+}
+
+.product-grid7 .social li a {
+    color: #fff;
+    background-color: #333;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    margin: 15px 0;
+    border-radius: 50%;
+    display: block;
+    transition: all .5s ease-in-out
+}
+
+.product-grid7 .social li a:hover {
+    color: #fff;
+    background-color: #78e08f
+}
+
+.product-grid7 .product-new-label {
+    color: #fff;
+    background-color: #ef5777;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px
+}
+
+.product-grid7 .product-content {
+    text-align: center;
+    padding: 20px 0 0
+}
+
+.product-grid7 .title {
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin: 0 0 10px;
+    transition: all .3s ease 0s
+}
+
+.product-grid7 .title a {
+    color: #333
+}
+
+.product-grid7 .title a:hover {
+    color: #78e08f
+}
+
+.product-grid7 .rating {
+    color: #78e08f;
+    font-size: 12px;
+    padding: 0;
+    margin: 0 0 10px;
+    list-style: none
+}
+
+.product-grid7 .price {
+    color: #333;
+    font-size: 20px;
+    font-family: Lora, serif;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-align: center;
+    transition: all .3s
+}
+
+.product-grid7 .price span {
+    color: #999;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: line-through;
+    margin-left: 7px;
+    display: inline-block
+}
+
+@media only screen and (max-width:990px) {
+    .product-grid7 {
+        margin-bottom: 30px
+    }
+}
+
+.single-item {
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+.producto:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    top: -4px;
+}
+
+.producto:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #00838d;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(2);
+    transform-origin: 50% 50%;
+    transition: transform 0.15s ease-out;
+}
+
+.producto:hover:before {
+    transform: scale(2.15);
+}
+
+.productos {
+    margin-top: 15px;
+    padding-bottom: 15px;
+    background: #e7e6e5;
+}
+
+.tproducto {
+    font-size: 30px;
+    font-weight: 900;
+    color: black;
+}
+
+.productl:hover {
+    text-decoration: none;
+}
+
+.marca {
+    padding: 50px 0px !important;
+}
+
+

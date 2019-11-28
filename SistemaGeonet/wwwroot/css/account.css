@@ -1,0 +1,60 @@
+body{
+    background: #eee8e8;
+}
+
+.tituloa{
+    margin: 50px 0px 50px 30px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+}
+.menuprofile{
+   
+}
+.menuprofile li a{
+    color: #fff;
+}
+.menuprofile li:hover{
+    border-right: 8px solid #eba630;
+    font-size: 17px;
+    transition: all 0.1s ease-in;
+}
+.menuprofile li a:hover{
+    border: none;
+}
+
+.nav-usser{
+    background: #080954;
+    height: 100vh;
+   
+}
+
+.btnClose {
+    position: absolute;
+    right: 0%;
+}
+.titulo{
+    font-size: 30px;
+}
+.fa-times {
+    color: #fff;
+    font-size: 30px;
+}
+
+.btnClose:focus {
+    outline: 0;
+}
+/*---------------cambiar contraseña diseño--------------*/
+.btnActualizar{
+    background:#080954;
+    color : #fff;
+}
+    .btnActualizar:hover {
+        border: 2px solid #080954;
+        background: #fff;
+        color: #080954;
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in;
+    }
+

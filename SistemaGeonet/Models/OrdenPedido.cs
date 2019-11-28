@@ -13,7 +13,6 @@ namespace SistemaGeonet.Models
         [Key]
         public int IdOrdenPedido { get; set; }
 
-
         [DisplayName("Código")]
         public string codigo { get; set; }
 
@@ -31,7 +30,19 @@ namespace SistemaGeonet.Models
         [DisplayName("Usuario")]
         public string usuario { get; set;  }
 
-     
-   
+        public int idCarrito { get; set; }
+
+        public string direccion { get; set; }
+
+        public string telefono { get; set; }
+
+        public string email { get; set; }
+
+        public int idMetodoPago { get; set; }
+
+        public int idPago { get; set; }
+
+        public MetodoPago metodoPago { get; set; }
+
     }
 }

@@ -1,0 +1,149 @@
+﻿@model SistemaGeonet.Models.Catalogo
+
+@{
+    ViewData["Title"] = "DetalleProductoCatalogo";
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<div class="container">
+    <hr>
+    <div class="wrapper row">
+        <div class="preview col-md-6">
+
+            <div class="preview-pic tab-content">
+                <div class="tab-pane active" id="pic-1"><img src="~/images/@Html.DisplayFor(model => model.foto1)" /></div>
+                <div class="tab-pane" id="pic-2"><img src="~/images/@Html.DisplayFor(model => model.foto2)" /></div>
+                <div class="tab-pane" id="pic-3"><img src="~/images/@Html.DisplayFor(model => model.foto3)" /></div>
+                <div class="tab-pane" id="pic-4"><img src="~/images/@Html.DisplayFor(model => model.foto4)" /></div>
+            </div>
+            <ul class="preview-thumbnail nav nav-tabs">
+                <li class="active">
+                    <a data-target="#pic-1" data-toggle="tab"><img src="~/images/@Html.DisplayFor(model => model.foto1)" /></a>
+                </li>
+                <li><a data-target="#pic-2" data-toggle="tab"><img src="~/images/@Html.DisplayFor(model => model.foto1)" /></a></li>
+                <li><a data-target="#pic-3" data-toggle="tab"><img src="~/images/@Html.DisplayFor(model => model.foto2)" /></a></li>
+                <li><a data-target="#pic-4" data-toggle="tab"><img src="~/images/@Html.DisplayFor(model => model.foto3)" /></a></li>
+                <li><a data-target="#pic-5" data-toggle="tab"><img src="~/images/@Html.DisplayFor(model => model.foto4)" /></a></li>
+            </ul>
+
+        </div>
+        <div class="details col-md-6">
+            <h3 class="product-title">@Html.DisplayFor(model => model.titulo)</h3>
+            <div class="rating">
+                <div class="stars">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <span class="review-no">41 Opiniones</span>
+            </div>
+            <p class="product-description">
+                @Html.DisplayFor(model => model.inventario.Equipo.descripcion)
+            </p>
+            <h4 class="price">Precio: <span>$@Html.DisplayFor(model => model.inventario.precioUnit)</span></h4>
+            <p class="vote">
+                <strong>91%</strong> de los compradores recomiendan este producto <strong>
+                    (87
+                    votos)
+                </strong>
+            </p>
+
+            <div class="cantidad input-group">
+                <span class="input-group-btn">
+                    <button type="button" class="quantity-left-minus btn  btn-number" data-type="minus"
+                            data-field="">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </span>
+                <input type="text" id="quantity" name="quantity" class="form-control input-number  text-center"
+                       value="10" min="1" max="@Html.DisplayFor(model => model.cantidadVirtual)">
+                <span class="input-group-btn">
+                    <button type="button" class="quantity-right-plus btn  btn-number" data-type="plus"
+                            data-field="">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </span>
+            </div>
+            <div class="action">
+                <button class="add-to-cart btn btn-default" type="button" onclick="agregarCarrito(@Html.DisplayFor(model => model.inventario.idInventario), 'quantity')">Agregar a carrito</button>
+                <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+
+<script src="~/js/agregar.js"></script>
+
+
+@*<h2>DetalleProductoCatalogo</h2>
+
+    <div>
+        <h4>Catalogo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.cantidadVirtual)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cantidadVirtual)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.titulo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.titulo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.foto1)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.foto1)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.foto2)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.foto2)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.foto3)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.foto3)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.foto4)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.foto4)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.calificacion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.calificacion)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.inventario)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.inventario.idInventario)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.idCatalogo">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>*@
