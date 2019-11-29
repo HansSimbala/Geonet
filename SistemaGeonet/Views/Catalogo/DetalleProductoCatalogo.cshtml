@@ -43,7 +43,7 @@
                 <span class="review-no">41 Opiniones</span>
             </div>
             <p class="product-description">
-                @Html.DisplayFor(model => model.inventario.Equipo.descripcion)
+                a @Html.DisplayFor(model => model.descripcion)
             </p>
             <h4 class="price">Precio: <span>$@Html.DisplayFor(model => model.inventario.precioUnit)</span></h4>
             <p class="vote">
@@ -60,8 +60,8 @@
                         <i class="fas fa-minus"></i>
                     </button>
                 </span>
-                <input type="text" id="quantity" name="quantity" class="form-control input-number  text-center"
-                       value="10" min="1" max="@Html.DisplayFor(model => model.cantidadVirtual)">
+                <input type="number" id="quantity" name="quantity" class="form-control input-number  text-center"
+                       value="1" min="1" max="@Html.DisplayFor(model => model.cantidadVirtual)">
                 <span class="input-group-btn">
                     <button type="button" class="quantity-right-plus btn  btn-number" data-type="plus"
                             data-field="">

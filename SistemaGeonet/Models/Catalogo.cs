@@ -42,7 +42,7 @@ namespace SistemaGeonet.Models
 
         public Inventario inventario { get; set; }
 
-        public ICollection<Reseña>reseñas { get; set; }
+        public ICollection<Reseña> reseñas { get; set; }
 
     }
 }

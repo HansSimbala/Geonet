@@ -1,0 +1,101 @@
+﻿@model IEnumerable<SistemaGeonet.Models.CarritoOrden>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<div class="card">
+    <table class="table table-hover shopping-cart-wrap">
+        <thead class="text-muted">
+            <tr>
+                <th scope="col">Equipo</th>
+                <th scope="col" width="120">Cantidad</th>
+                <th scope="col" width="120">Precio</th>
+            </tr>
+        </thead>
+        <tbody id="IdOrden">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                @foreach (var item in ViewData["listaDetalleCarrito"] as IEnumerable<SistemaGeonet.Models.DetallePedido>)
+                {
+                    <tr>
+                        <td>
+                            <figure class="media">
+                                <div class="img-wrap"><img src="~/images/@item.inventario.idEquipo" class="img-thumbnail img-sm" width="150px" height="150px"></div>
+                                <figcaption class="media-body">
+                                    <h6 class="title text-truncate"><strong>@item.inventario.nombre </strong></h6>
+                                    <dl class="param param-inline small">
+                                        <dt>Marca: </dt>
+                                        <dd>@item.inventario.marca</dd>
+                                    </dl>
+                                    <dl class="param param-inline small">
+                                        <dt>Descripción: </dt>
+                                        <dd>@item.inventario.nombre</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </td>
+                        <td>
+                            <input type="number" value="@item.cantidad" class="form-control input-number  text-center" disabled />
+                        </td>
+                        <td>
+                            <div class="price-wrap">
+                                <var class="price">USD @item.inventario.precioUnit</var>
+                                @*<small class="text-muted">(USD5 C/U)</small>*@
+                            </div> <!-- price-wrap .// -->
+                        </td>
+                    </tr>
+
+                }
+
+            }
+        </tbody>
+    </table>
+
+</div>
+
+@*<h2>Index</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.idUsuario)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.preciototal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.estado)
+                    </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.preciototal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.idCarritoOrden">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.idCarritoOrden">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.idCarritoOrden">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@

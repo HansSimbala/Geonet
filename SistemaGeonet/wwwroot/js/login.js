@@ -9,7 +9,5 @@ $(document).ready(function(){
         $("#txtContraseña").attr( "type","password");
         $(".yes").removeClass("d-none");
         $(".no").addClass("d-none")
-    });
-        
-    
+    });         
 });

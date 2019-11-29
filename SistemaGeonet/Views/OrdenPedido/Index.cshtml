@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SistemaGeonet.Models.OrdenPedido>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fechapedido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idCarrito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.metodoPago)
+            </th>
+            <th>
+                DETALLE
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechapedido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idCarrito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.metodoPago)
+            </td>
+            <td>
+                <a asp-controller="CarritoOrdens" asp-action="IndexDetalle" asp-route-id="@item.idCarrito"><i class="fas fa-shopping-cart"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

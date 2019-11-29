@@ -168,7 +168,6 @@
                     </div>
                 </a>
             </div>
-
         </div>
     </div>
 </div>
@@ -199,83 +198,3 @@
 </div>
 <script src="~/js/agregar.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="~/js/main.js"></script>
-
-@*<h2>IndiceCatalogo</h2>
-
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.cantidadVirtual)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.titulo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.descripcion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.foto1)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.foto2)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.foto3)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.foto4)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.calificacion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.inventario)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.cantidadVirtual)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.titulo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.descripcion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.foto1)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.foto2)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.foto3)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.foto4)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.calificacion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.inventario.idInventario)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.idCatalogo">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.idCatalogo">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.idCatalogo">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>*@

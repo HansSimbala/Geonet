@@ -37,10 +37,10 @@ C:\Users\hans3\Source\Repos\HansSimbala\Geonet\SistemaGeonet\bin\Debug\netcoreap
 C:\Users\hans3\Source\Repos\HansSimbala\Geonet\SistemaGeonet\bin\Debug\netcoreapp2.0\SistemaGeonet.runtimeconfig.dev.json
 C:\Users\hans3\Source\Repos\HansSimbala\Geonet\SistemaGeonet\bin\Debug\netcoreapp2.0\SistemaGeonet.dll
 C:\Users\hans3\Source\Repos\HansSimbala\Geonet\SistemaGeonet\bin\Debug\netcoreapp2.0\SistemaGeonet.pdb
-C:\Users\hans3\Source\Repos\HansSimbala\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\SistemaGeonet.csprojAssemblyReference.cache
 C:\Users\hans3\Source\Repos\HansSimbala\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\SistemaGeonet.csproj.CoreCompileInputs.cache
 C:\Users\hans3\Source\Repos\HansSimbala\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 C:\Users\hans3\Source\Repos\HansSimbala\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\SistemaGeonet.AssemblyInfoInputs.cache
 C:\Users\hans3\Source\Repos\HansSimbala\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\SistemaGeonet.AssemblyInfo.cs
 C:\Users\hans3\Source\Repos\HansSimbala\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\SistemaGeonet.dll
 C:\Users\hans3\Source\Repos\HansSimbala\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\SistemaGeonet.pdb
+C:\Users\hans3\Source\Repos\HansSimbala\Geonet\SistemaGeonet\obj\Debug\netcoreapp2.0\SistemaGeonet.csprojAssemblyReference.cache

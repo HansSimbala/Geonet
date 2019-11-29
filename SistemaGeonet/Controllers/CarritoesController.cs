@@ -34,7 +34,7 @@ namespace SistemaGeonet.Controllers
                 ViewData["idcarrito"] = idCarrito;
             }
 
-            List<DetallePedido> listDetalles = _context.Set<DetallePedido>().Include(s => s.inventario).ToList();
+            List<DetallePedido> listDetalles = _context.Set<DetallePedido>().Include(s => s.inventario.Equipo).ToList();
             ViewData["listaDetalleCarrito"] = listDetalles;
             return View(await _context.Carrito.ToListAsync());
         }

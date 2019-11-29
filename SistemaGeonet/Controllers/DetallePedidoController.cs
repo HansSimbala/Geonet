@@ -76,14 +76,14 @@ namespace SistemaGeonet.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public async Task<String> Agregar(int hasOrden, int IdCarrito, int IdEquipo, int cantidad, DetallePedido detallePedido)
+        public async Task<string> Agregar(int hasOrden, int IdCarrito, int IdEquipo, int cantidad, DetallePedido detallePedido)
         {
             var userId = _userManager.GetUserId(User);
             var tCarrito = await _context.Carrito.SingleOrDefaultAsync(m => m.idUsuario == userId);
             var idCarrito = tCarrito.idCarrito;
             detallePedido = new DetallePedido
             {
-                hasOrden = hasOrden,
+                hasOrden = 0,
                 idCarrito = idCarrito,
                 idInventario = IdEquipo,
                 cantidad = cantidad
@@ -144,6 +144,36 @@ namespace SistemaGeonet.Controllers
             }
             ViewData["idInventario"] = new SelectList(_context.Inventario, "IdInventario", "IdInventario", detallePedido.idInventario);
             return View(detallePedido);
+        }
+
+        // POST: DetallePedido/EditarCarrito/
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        public async Task<string> EditarCarrito(int IdCarrito, int IdCarritoOrden)
+        {
+            List<DetallePedido> list = new List<DetallePedido>();
+            var applicationDbContext = _context.DetallePedido.Include(d => d.inventario);
+            List<DetallePedido> listDetalles = await applicationDbContext.ToListAsync();
+            bool a = false;
+            a = listDetalles[0].idCarrito == 2;
+
+            for (int i = 0; i < listDetalles.Count; i++)
+            {
+                if (listDetalles[i].idCarrito == IdCarrito)
+                {
+                    list.Add(listDetalles[i]);
+                }
+            }
+
+            for (int j = 0; j < list.Count; j++)
+            {
+                list[j].idCarrito = IdCarritoOrden;
+                list[j].hasOrden = 1;
+                _context.Update(list[j]);
+                await _context.SaveChangesAsync();
+            }
+            return "success";
         }
 
         // GET: DetallePedido/Delete/5

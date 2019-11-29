@@ -8,7 +8,7 @@ namespace SistemaGeonet.Models
     public class CarritoOrden
     {
         [Key]
-        public int idCarritoOrden;
+        public int idCarritoOrden { get; set; }
 
         public string idUsuario { get; set; }
 

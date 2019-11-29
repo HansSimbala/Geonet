@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +15,36 @@ namespace SistemaGeonet.Controllers
     public class OrdenPedidoController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public OrdenPedidoController(ApplicationDbContext context)
+        public OrdenPedidoController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
+        }
+
+        // GET: OrdenPedido
+        public async Task<IActionResult> Index()
+        {
+            var userId = _userManager.GetUserId(User);
+            var applicationDbContext = _context.OrdenPedido.Include(o => o.metodoPago);
+            List<OrdenPedido> ordenPedidos = await applicationDbContext.ToListAsync();
+            List<OrdenPedido> ordenPedidosNew = new List<OrdenPedido>();
+            for (int i = 0; i < ordenPedidos.Count; i++)
+            {
+                var tCarrito = await _context.CarritoOrden.SingleOrDefaultAsync(m => m.idCarritoOrden == ordenPedidos[i].idCarrito);
+                if (tCarrito.idUsuario == userId)
+                {
+                    ordenPedidosNew.Add(ordenPedidos[i]);
+                }
+            }
+            return View(ordenPedidosNew);
+        }
+
+        // GET: OrdenPedido/Create
+        public IActionResult Create()
+        {
+            return View();
         }
 
         // GET: OrdenPedido
@@ -42,13 +70,6 @@ namespace SistemaGeonet.Controllers
 
             return View(ordenPedido);
         }
-
-
-      
-
-
-
-
 
         public async Task<IActionResult> AtenderOrdenPedido(int? id)
         {
@@ -110,12 +131,26 @@ namespace SistemaGeonet.Controllers
             return RedirectToAction("MenuOrdenPedido", "OrdenPedido");
         }
 
-
-
-
-
-
-
+        // POST: OrdenPedidoes/Agregar/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        public async Task<string> Agregar(int IdCarritoOrden, DateTime fechapedido, string direccion, string telefono, string email, int IdMetodoPago, int IdPago, OrdenPedido ordenPedido)
+        {
+            ordenPedido = new OrdenPedido
+            {
+                idCarrito = IdCarritoOrden,
+                fechapedido = fechapedido,
+                direccion = direccion,
+                telefono = telefono,
+                email = email,
+                idMetodoPago = IdMetodoPago,
+                idPago = IdPago
+            };
+            _context.Add(ordenPedido);
+            await _context.SaveChangesAsync();
+            return "Success";
+        }
 
         // GET: OrdenPedido/Create
         public IActionResult RegistrarOrdenPedido()

@@ -17,14 +17,14 @@
             IdCarritoOrden = response;
             $.ajax({
                 type: 'POST',
-                url: "/DetalleCarritoes/EditarCarrito",
+                url: "/DetallePedido/EditarCarrito",
                 data: {
                     IdCarrito,
                     IdCarritoOrden
                 },
                 success: function (response) {
                     console.log(response);
-                    window.location.replace("../OrdenPedidoes/Create?id=" + IdCarritoOrden);
+                    window.location.replace("../OrdenPedido/Create?id=" + IdCarritoOrden);
                 },
             });
         },

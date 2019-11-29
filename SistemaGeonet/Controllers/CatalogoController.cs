@@ -60,6 +60,7 @@ namespace SistemaGeonet.Controllers
             }
 
             var catalogo = await _context.Catalogo
+                .Include(i => i.inventario)
                 .SingleOrDefaultAsync(m => m.idCatalogo == id);
             if (catalogo == null)
             {

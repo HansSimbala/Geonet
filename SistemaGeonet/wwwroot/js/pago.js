@@ -42,7 +42,7 @@ function ordenarPedido() {
                 IdPago = response;
                 $.ajax({
                     type: 'POST',
-                    url: "/OrdenPedidoes/Agregar",
+                    url: "/OrdenPedido/Agregar",
                     data: {
                         IdCarritoOrden,
                         fechapedido,
@@ -59,7 +59,7 @@ function ordenarPedido() {
                             'success'
                         ).then((result) => {
                             if (result.value) {
-                                window.location.replace("../OrdenPedidoes/Index");
+                                window.location.replace("../OrdenPedido/Index");
                             }
                         })
                         console.log(response);
@@ -82,7 +82,7 @@ function ordenarPedido() {
                 IdPago = response;
                 $.ajax({
                     type: 'POST',
-                    url: "/OrdenPedidoes/Agregar",
+                    url: "/OrdenPedido/Agregar",
                     data: {
                         IdCarritoOrden,
                         fechapedido,
@@ -99,7 +99,7 @@ function ordenarPedido() {
                             'success'
                         ).then((result) => {
                             if (result.value) {
-                                window.location.replace("../OrdenPedidoes/Index");
+                                window.location.replace("../OrdenPedido/Index");
                             }
                         })
                         console.log(response);
